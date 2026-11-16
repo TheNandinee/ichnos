@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-11-16T21:45:43+00:00",
+  "days": [
+    "2025-10-14",
+    "2025-11-04",
+    "2025-11-05"
+  ],
+  "methods": [
+    {
+      "method": "integrity_only",
+      "n_windows": 2,
+      "detected": 1,
+      "recall": 0.5,
+      "ci_lo": 0.09452865480086614,
+      "ci_hi": 0.9054713451991339,
+      "control_hours": 24.0,
+      "fa_events": 3,
+      "fa_rate_ub95_per_h": 0.32306902199719695
+    },
+    {
+      "method": "ichnos",
+      "n_windows": 2,
+      "detected": 1,
+      "recall": 0.5,
+      "ci_lo": 0.09452865480086614,
+      "ci_hi": 0.9054713451991339,
+      "control_hours": 24.0,
+      "fa_events": 3,
+      "fa_rate_ub95_per_h": 0.32306902199719695
+    }
+  ],
+  "windows": [
+    {
+      "method": "integrity_only",
+      "window": "DEL-2025-11-spoof",
+      "class": "spoof",
+      "covered_hours": 48.0,
+      "n_events": 12
+    },
+    {
+      "method": "integrity_only",
+      "window": "ATQ-2025-11-jam",
+      "class": "jam",
+      "covered_hours": 48.0,
+      "n_events": 0
+    },
+    {
+      "method": "integrity_only",
+      "window": "DEL-2025-10-control",
+      "class": "control",
+      "covered_hours": 24.0,
+      "n_events": 3
+    },
+    {
+      "method": "ichnos",
+      "window": "DEL-2025-11-spoof",
+      "class": "spoof",
+      "covered_hours": 48.0,
+      "n_events": 12
+    },
+    {
+      "method": "ichnos",
+      "window": "ATQ-2025-11-jam",
+      "class": "jam",
+      "covered_hours": 48.0,
+      "n_events": 0
+    },
+    {
+      "method": "ichnos",
+      "window": "DEL-2025-10-control",
+      "class": "control",
+      "covered_hours": 24.0,
+      "n_events": 3
+    }
+  ],
+  "performance": {
+    "mean_rows_per_s": 7525.133333333334,
+    "days": 3
+  },
+  "note": "Window-level labels from public reports; not exact event ground truth."
+}

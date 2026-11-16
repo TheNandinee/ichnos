@@ -1,0 +1,22 @@
+india_bbox: {lat_min: 6.0, lat_max: 37.5, lon_min: 68.0, lon_max: 97.5}
+h3_res: 5
+public_h3_res: 4
+jamming:
+  nic_max: 6        # NIC < 7
+  nacp_max: 7       # NACp < 8
+  min_aircraft: 5
+spoofing:
+  v_th_mps: 650
+  min_dt_s: 0.5
+  z: 2.326          # 99th percentile
+  min_ref_points: 20
+cluster:
+  eps_space_km: 35
+  eps_time_min: 75
+  poisson_q: 0.99
+  c: 0.00108        # from Park et al.; recalibrate on Indian control windows
+  grid_area_km2: 252.9   # mean H3 res-5 cell area
+  grid_time_min: 60
+  min_aircraft: 2
+physics:
+  emitter_height_m: 30

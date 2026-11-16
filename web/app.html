@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICHNOS — Passive ADS-B Navigation Interference Monitor</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#replay-workspace">Skip to replay console</a>
+
+    <!-- 1. SLIM TOP BAR -->
+    <header class="topbar" role="banner">
+      <div class="topbar__brand">
+        <img src="/favicon.svg" alt="" class="topbar__logo" width="24" height="24" />
+        <div class="topbar__title-group">
+          <a href="/" class="topbar__wordmark" style="color:inherit;text-decoration:none">ICHNOS</a>
+          <span class="topbar__subline">Every flight, a sensor</span>
+        </div>
+      </div>
+
+      <div class="mode-switch" role="group" aria-label="Detection mode">
+        <button
+          type="button"
+          class="mode-switch__btn"
+          id="mode-standard"
+          data-mode="standard"
+          aria-pressed="false"
+        >
+          Standard map
+        </button>
+        <button
+          type="button"
+          class="mode-switch__btn is-active"
+          id="mode-ichnos"
+          data-mode="ichnos"
+          aria-pressed="true"
+        >
+          ICHNOS
+        </button>
+      </div>
+
+      <div class="topbar__actions">
+        <button type="button" class="link-btn" id="btn-open-method">Method</button>
+      </div>
+    </header>
+
+    <!-- 2. COLLAPSIBLE HERO STRIP -->
+    <section class="hero-strip" id="hero-strip" aria-labelledby="hero-heading">
+      <div class="hero-strip__inner" id="hero-content">
+        <div class="hero-strip__headline-col">
+          <span class="eyebrow">PASSIVE ADS-B INTERFERENCE TELEMETRY · INDIA AIRSPACE</span>
+          <h1 class="hero-strip__heading" id="hero-heading">
+            See where India's navigation is being jammed and spoofed.
+          </h1>
+        </div>
+
+        <div class="hero-strip__stats" aria-live="polite">
+          <article class="stat-tile">
+            <span class="stat-tile__label">Reports analysed</span>
+            <strong class="stat-tile__value mono" id="stat-reports">—</strong>
+            <span class="stat-tile__meta mono" id="stat-days">Awaiting dataset</span>
+          </article>
+
+          <article class="stat-tile">
+            <span class="stat-tile__label">Aircraft observed</span>
+            <strong class="stat-tile__value mono" id="stat-aircraft">—</strong>
+            <span class="stat-tile__meta mono" id="stat-events">Awaiting dataset</span>
+          </article>
+
+          <article class="stat-tile stat-tile--accent">
+            <span class="stat-tile__label">ICHNOS recall (95% CI)</span>
+            <strong class="stat-tile__value mono" id="stat-recall">—</strong>
+            <span class="stat-tile__meta mono" id="stat-recall-ci">Awaiting benchmark</span>
+          </article>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="hero-strip__toggle"
+        id="btn-toggle-hero"
+        aria-expanded="true"
+        aria-controls="hero-content"
+        title="Collapse summary strip"
+      >
+        <span class="hero-strip__toggle-text">Collapse</span>
+        <span class="hero-strip__toggle-icon" aria-hidden="true">▲</span>
+      </button>
+    </section>
+
+    <!-- 3. MAIN FULL-HEIGHT REPLAY VIEW -->
+    <main class="replay-workspace" id="replay-workspace">
+      <!-- Left Control & Event Rail (320px) -->
+      <aside class="rail-left" aria-label="Layers, time window, and detected events">
+        <section class="panel-block">
+          <div class="panel-block__header">
+            <h2 class="panel-block__title">Layers &amp; Basemap</h2>
+            <div class="basemap-toggle" role="group" aria-label="Map theme">
+              <button
+                type="button"
+                class="basemap-toggle__btn is-active"
+                id="basemap-dark"
+                data-basemap="dark"
+                aria-pressed="true"
+              >
+                Dark
+              </button>
+              <button
+                type="button"
+                class="basemap-toggle__btn"
+                id="basemap-light"
+                data-basemap="light"
+                aria-pressed="false"
+              >
+                Light
+              </button>
+            </div>
+          </div>
+
+          <ul class="layer-list">
+            <li class="layer-item">
+              <label class="checkbox-row">
+                <input type="checkbox" id="layer-jamming" checked />
+                <span class="swatch swatch--jam" aria-hidden="true"></span>
+                <span class="layer-item__name">Jamming hexes</span>
+                <span class="layer-item__tag mono">HEX</span>
+              </label>
+            </li>
+            <li class="layer-item" data-ichnos-only>
+              <label class="checkbox-row">
+                <input type="checkbox" id="layer-spoofing" checked />
+                <span class="swatch swatch--spoof" aria-hidden="true"></span>
+                <span class="layer-item__name">Spoofing anomalies</span>
+                <span class="layer-item__tag mono">PT</span>
+              </label>
+            </li>
+            <li class="layer-item">
+              <label class="checkbox-row">
+                <input type="checkbox" id="layer-events" checked />
+                <span class="swatch swatch--event" aria-hidden="true"></span>
+                <span class="layer-item__name">Clustered events</span>
+                <span class="layer-item__tag mono">EVT</span>
+              </label>
+            </li>
+            <li class="layer-item" data-ichnos-only>
+              <label class="checkbox-row">
+                <input type="checkbox" id="layer-regions" checked />
+                <span class="swatch swatch--region" aria-hidden="true"></span>
+                <span class="layer-item__name">Feasible regions</span>
+                <span class="layer-item__tag mono">POLY</span>
+              </label>
+            </li>
+            <li class="layer-item">
+              <label class="checkbox-row">
+                <input type="checkbox" id="layer-coverage" />
+                <span class="swatch swatch--coverage" aria-hidden="true"></span>
+                <span class="layer-item__name">Receiver coverage</span>
+                <span class="layer-item__tag mono">RPH</span>
+              </label>
+            </li>
+          </ul>
+        </section>
+
+        <section class="panel-block">
+          <div class="panel-block__header">
+            <h2 class="panel-block__title">Time Window</h2>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="chk-all-hours" checked />
+              <span>All hours</span>
+            </label>
+          </div>
+          <div class="time-readout mono" id="rail-time-readout">ALL AVAILABLE HOURS</div>
+        </section>
+
+        <section class="panel-block panel-block--grow">
+          <div class="panel-block__header">
+            <h2 class="panel-block__title">Detected Events</h2>
+            <span class="badge mono" id="event-count-badge">0</span>
+          </div>
+
+          <div class="event-list-wrap" id="event-list-container" role="region" aria-label="Event list">
+            <div class="empty-state" id="event-list-empty">
+              Run the pipeline to populate this panel
+            </div>
+            <ul class="event-list" id="event-list" hidden></ul>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Centre Map Stage + Bottom Timeline Scrubber -->
+      <div class="map-stage">
+        <div
+          id="map"
+          class="map-canvas"
+          role="application"
+          aria-label="Interactive map of India showing ADS-B GPS jamming and spoofing detections"
+        ></div>
+
+        <!-- Map Status Pill -->
+        <div class="map-hud-top">
+          <div class="hud-pill" id="hud-mode-status">
+            <span class="hud-dot hud-dot--cyan" aria-hidden="true"></span>
+            <span id="hud-mode-label">ICHNOS LANE 1 + LANE 2 ACTIVE</span>
+          </div>
+          <button type="button" class="hud-btn mono" id="btn-reset-view" hidden>
+            Clear selection [Esc]
+          </button>
+        </div>
+
+        <!-- Hover Tooltip -->
+        <div class="map-tooltip" id="map-tooltip" role="tooltip" hidden></div>
+
+        <!-- Empty Overlay if GeoJSON missing -->
+        <div class="map-empty-banner" id="map-empty-banner" hidden>
+          Run the pipeline to populate this panel
+        </div>
+
+        <!-- 4. TIMELINE SCRUBBER -->
+        <div class="scrubber" role="region" aria-label="Timeline playback controls">
+          <button
+            type="button"
+            class="scrubber__play"
+            id="btn-play-pause"
+            aria-label="Play timeline"
+            disabled
+          >
+            <span id="play-icon" aria-hidden="true">▶</span>
+          </button>
+
+          <div class="scrubber__track-wrap">
+            <div class="scrubber__meta">
+              <span class="scrubber__label">UTC HOUR</span>
+              <span class="scrubber__timestamp mono" id="scrubber-timestamp">—</span>
+            </div>
+            <div class="scrubber__slider-box">
+              <div class="scrubber__ticks" id="scrubber-ticks" aria-hidden="true"></div>
+              <input
+                type="range"
+                class="scrubber__range"
+                id="scrubber-range"
+                min="0"
+                max="0"
+                value="0"
+                aria-label="Select UTC epoch hour"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Slide-in Event Inspection Drawer -->
+      <aside
+        class="drawer-right"
+        id="event-drawer"
+        aria-label="Selected event details"
+        aria-hidden="true"
+      >
+        <div class="drawer-right__header">
+          <div>
+            <span class="eyebrow">EVENT TELEMETRY</span>
+            <h2 class="drawer-right__title mono" id="drawer-event-id">—</h2>
+          </div>
+          <button
+            type="button"
+            class="icon-btn"
+            id="btn-close-drawer"
+            aria-label="Close event details"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="drawer-right__body" id="drawer-body">
+          <div class="drawer-type-row">
+            <span class="type-pill" id="drawer-type-badge">—</span>
+            <span class="mono muted" id="drawer-day">—</span>
+          </div>
+
+          <dl class="telemetry-grid">
+            <div class="telemetry-item telemetry-item--full">
+              <dt>Window (UTC)</dt>
+              <dd class="mono" id="drawer-window">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Duration</dt>
+              <dd class="mono" id="drawer-duration">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Affected aircraft</dt>
+              <dd class="mono" id="drawer-aircraft">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Anomaly reports</dt>
+              <dd class="mono" id="drawer-anomalies">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Cluster MinPts</dt>
+              <dd class="mono" id="drawer-minpts">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Feasible region area</dt>
+              <dd class="mono" id="drawer-area">—</dd>
+            </div>
+            <div class="telemetry-item">
+              <dt>Border feasibility</dt>
+              <dd class="mono" id="drawer-border">—</dd>
+            </div>
+          </dl>
+
+          <div class="drawer-timeline-box">
+            <div class="drawer-timeline-box__head">
+              <span>Event Window Progression</span>
+              <span class="mono" id="drawer-span-label">—</span>
+            </div>
+            <div class="event-bar">
+              <div class="event-bar__fill" id="drawer-timeline-fill"></div>
+            </div>
+          </div>
+
+          <p class="drawer-note">
+            Feasible regions represent geometric line-of-sight and kinematic constraint envelopes,
+            not exact emitter coordinates.
+          </p>
+
+          <div class="drawer-actions">
+            <button type="button" class="btn-primary" id="btn-copy-id">Copy event ID</button>
+            <button type="button" class="btn-secondary" id="btn-zoom-event">Re-centre</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- 5. BENCHMARK & EPISTEMIC BOUNDARIES SECTION -->
+    <section class="benchmark-section" aria-labelledby="benchmark-heading">
+      <div class="benchmark-container">
+        <div class="benchmark-header">
+          <div>
+            <span class="eyebrow">EMPIRICAL VALIDATION</span>
+            <h2 class="benchmark-title" id="benchmark-heading">
+              Detection Benchmark: Integrity-Only vs. ICHNOS
+            </h2>
+          </div>
+          <p class="benchmark-note mono" id="benchmark-note"></p>
+        </div>
+
+        <div class="benchmark-grid">
+          <div class="benchmark-card" id="benchmark-panel">
+            <div class="empty-state" id="benchmark-empty">
+              Run the pipeline to populate this panel
+            </div>
+            <div id="benchmark-rows" class="benchmark-rows" hidden></div>
+          </div>
+
+          <aside class="claims-box" aria-labelledby="claims-heading">
+            <h3 class="claims-box__title" id="claims-heading">What we can't claim</h3>
+            <ul class="claims-box__list">
+              <li>
+                <strong>Labels are time windows:</strong> Ground-truth evaluation labels denote
+                known interference time windows rather than per-packet emitter truth.
+              </li>
+              <li>
+                <strong>ADS-B under-counts jamming:</strong> Severe RF jamming causes receivers or
+                transponders to drop position packets entirely, creating silence gaps rather than
+                degraded NIC/NACp fields.
+              </li>
+              <li>
+                <strong>No military aircraft coverage:</strong> Public crowdsourced ADS-B feeds
+                exclude encrypted military transponders and tactical datalinks.
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <span class="footer__badge">Receive-only. ICHNOS never transmits.</span>
+          <span class="footer__sep" aria-hidden="true">·</span>
+          <span id="footer-attribution">Contains data from adsb.lol contributors, ODbL 1.0</span>
+        </div>
+        <div class="footer__right mono">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__link"
+          >
+            GitHub
+          </a>
+          <span class="footer__sep" aria-hidden="true">·</span>
+          <span id="footer-version">release: —</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- METHODOLOGY OVERLAY DIALOG -->
+    <dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title">
+      <div class="method-dialog__inner">
+        <div class="method-dialog__header">
+          <div>
+            <span class="eyebrow">DETECTION ARCHITECTURE</span>
+            <h2 class="method-dialog__title" id="method-title">Two-Lane Passive Detection</h2>
+          </div>
+          <button
+            type="button"
+            class="icon-btn"
+            id="btn-close-method"
+            aria-label="Close methodology dialog"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="method-dialog__body">
+          <strong>Lane 1 (Integrity &amp; Jamming)</strong> aggregates Navigation Integrity Category
+          (NIC) and Navigation Accuracy Category (NACp) degradations across H3 hexagonal cells to
+          map spatial radio-frequency interference.
+          <strong>Lane 2 (Kinematic Spoofing)</strong> flags aircraft trajectories exhibiting
+          position reports that imply physically impossible speeds and also fail two track-consistency tests (neighbour-interpolation residual and predecessor gap) even when integrity flags remain nominal.
+          Spatiotemporal DBSCAN clustering groups co-occurring anomalies into discrete events
+          governed by a minimum aircraft-report threshold (MinPts).
+          For each clustered event, radio horizon geometry intersects affected aircraft altitudes
+          to bound a feasible region where a ground-based transmitter could maintain line of sight.
+        </p>
+        <div class="method-dialog__footer">
+          <button type="button" class="btn-primary" id="btn-dismiss-method">Acknowledge</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+day,dataset,release_tag,file,bytes,sha256,licence,retrieved_at_utc
+2025-11-04,adsblol/globe_history_2025,v2025.11.04-planes-readsb-prod-0,2025-11-04.tar,3386109952,785afddbcd2a00190993be709f8cf3a581e0dc15e49849805ef618e35ecb30a4,ODbL-1.0,2026-11-16T19:06:43+00:00
+2025-11-05,adsblol/globe_history_2025,v2025.11.05-planes-readsb-prod-0,2025-11-05.tar,3348073472,cbe9e9e2caa429ecda798562cffc133de67efc91741c494cdc270aea65a0703b,ODbL-1.0,2026-11-16T21:19:13+00:00
+2025-10-14,adsblol/globe_history_2025,v2025.10.14-planes-readsb-prod-0,2025-10-14.tar,3381369856,81d28b18f86a333fc547ae964ed14bf99df59549f7ae6864e9b49e65f9601dde,ODbL-1.0,2026-11-16T21:37:51+00:00

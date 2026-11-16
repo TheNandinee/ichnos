@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICHNOS · Every flight, a sensor</title>
+  <meta name="description" content="ICHNOS turns public aircraft broadcasts into an open, replayable map of where GPS is jammed and spoofed over India." />
+  <meta property="og:title" content="ICHNOS · Every flight, a sensor" />
+  <meta property="og:description" content="Open, replayable GPS jamming and spoofing intelligence for Indian airspace." />
+  <meta property="og:image" content="/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="26" height="26" /><b>ICHNOS</b></a>
+    <div class="nav__links">
+      <a href="#problem">Problem</a>
+      <a href="#reveal">Why maps miss it</a>
+      <a href="#how">How it works</a>
+      <a href="#proof">Proof</a>
+      <a class="btn btn--primary btn--sm" href="/app.html">Open live replay</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__content">
+        <div class="eyebrow rise d1">DEFENCE · INTELLIGENCE · SPACE &amp; NATIONAL SECURITY</div>
+        <h1 class="rise d2">Every flight over India<br />is a <em>sensor.</em></h1>
+        <p class="lead rise d3">ICHNOS turns public aircraft broadcasts into an open, replayable map of where satellite navigation is being jammed, and where it is being spoofed.</p>
+        <p class="hindi rise d3">हर उड़ान, एक सेंसर</p>
+        <div class="cta-row rise d4">
+          <a class="btn btn--primary" href="/app.html">Open live replay →</a>
+          <a class="btn btn--ghost" href="#how">How it works</a>
+        </div>
+        <div class="legend rise d5" aria-label="Animation legend">
+          <span><i class="lg lg--cyan"></i>Normal track</span>
+          <span><i class="lg lg--red"></i>Spoofed position</span>
+          <span><i class="lg lg--saffron"></i>True path</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__ticker">
+      <span><i class="dot-live"></i><span id="ticker-main">Loading replay dataset…</span></span>
+      <span>Receive-only · Open data (ODbL) · Self-hostable</span>
+    </div>
+  </header>
+
+  <section class="block" id="problem">
+    <div class="wrap">
+      <div class="eyebrow reveal">THE PROBLEM</div>
+      <h2 class="reveal">India's navigation layer is under attack.</h2>
+      <p class="sub reveal">Jamming blocks satellite signals. Spoofing fakes them. Both are now officially on the record over Indian airspace.</p>
+      <div class="stats">
+        <article class="stat reveal">
+          <div class="num" data-count="465">0</div>
+          <div class="what">GPS interference incidents in the border region, mostly Amritsar and Jammu, Nov 2023 – Feb 2025</div>
+          <div class="src">Lok Sabha written reply · 20 Mar 2025</div>
+        </article>
+        <article class="stat reveal">
+          <div class="num" data-count="2354">0</div>
+          <div class="what">Interference events reported by airlines across India, Nov 2023 – Dec 2025</div>
+          <div class="src">Lok Sabha reply · 12 Mar 2026</div>
+        </article>
+        <article class="stat reveal">
+          <div class="num" data-count="623">0</div>
+          <div class="what">Reports around Delhi airspace in January–February 2026 alone</div>
+          <div class="src">Lok Sabha reply · 12 Mar 2026</div>
+        </article>
+        <article class="stat reveal">
+          <div class="num" data-count="10" data-suffix=" min">0</div>
+          <div class="what">DGCA's new deadline for reporting spoofing, after the Delhi RWY 10 incidents</div>
+          <div class="src">DGCA SOP · Nov 2025</div>
+        </article>
+      </div>
+      <p class="kicker reveal">Yet there is <b>no open, replayable picture</b> of where and when it happens.</p>
+    </div>
+  </section>
+
+  <section class="block" id="reveal">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow reveal">THE BLIND SPOT</div>
+        <h2 class="reveal">Standard maps miss spoofing.</h2>
+        <p class="sub reveal">Public interference maps read each aircraft's own integrity value. Spoofing can keep that value healthy while the reported position jumps somewhere impossible. So the map stays green.</p>
+        <p class="sub reveal">ICHNOS adds a second lane that checks the physics of every track: no airliner moves hundreds of metres sideways in a second.</p>
+        <p class="cite reveal">Research: over 99% of confirmed spoofing anomalies kept integrity indicators high (Park, Lee &amp; Son, arXiv 2607.09700, 2026).</p>
+      </div>
+      <div class="figure reveal">
+        <svg viewBox="0 0 600 270" role="img" aria-labelledby="rv-title">
+          <title id="rv-title">A spoofed aircraft keeps a healthy integrity value while its reported position jumps</title>
+          <g class="rv-late">
+            <rect x="20" y="18" width="560" height="36" rx="6" fill="rgba(229,72,77,0.12)" stroke="#E5484D" stroke-width="0.8" />
+            <text x="300" y="41" text-anchor="middle" fill="#F7C1C1" font-size="14" font-family="Inter, sans-serif">ICHNOS spoofing lane: impossible jump flagged</text>
+          </g>
+          <line class="rv-normal" x1="50" y1="170" x2="290" y2="170" stroke="#00B3C7" stroke-width="2" />
+          <g fill="#00B3C7">
+            <circle cx="50" cy="170" r="5" /><circle cx="110" cy="170" r="5" /><circle cx="170" cy="170" r="5" />
+            <circle cx="230" cy="170" r="5" /><circle cx="290" cy="170" r="5" />
+          </g>
+          <g class="rv-late">
+            <line x1="294" y1="165" x2="336" y2="106" stroke="#E5484D" stroke-width="2" />
+            <line x1="340" y1="100" x2="520" y2="100" stroke="#E5484D" stroke-width="1" stroke-dasharray="3 3" />
+            <g fill="#E5484D"><circle cx="340" cy="100" r="5" /><circle cx="400" cy="100" r="5" /><circle cx="460" cy="100" r="5" /><circle cx="520" cy="100" r="5" /></g>
+            <text x="430" y="84" text-anchor="middle" fill="#F09595" font-size="12" font-family="Inter, sans-serif">reported position</text>
+            <line x1="290" y1="170" x2="560" y2="170" stroke="#FF9933" stroke-width="1.5" stroke-dasharray="5 5" />
+            <text x="430" y="192" text-anchor="middle" fill="#FFB870" font-size="12" font-family="Inter, sans-serif">true path</text>
+          </g>
+          <rect x="20" y="218" width="560" height="36" rx="6" fill="rgba(43,182,115,0.12)" stroke="#2BB673" stroke-width="0.8" />
+          <text x="300" y="241" text-anchor="middle" fill="#97E0B9" font-size="14" font-family="Inter, sans-serif">NIC 8 · integrity nominal, so a standard map shows green</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="eyebrow reveal">HOW IT WORKS</div>
+      <h2 class="reveal">Listen. Detect. Bound. Prove.</h2>
+      <div class="steps">
+        <article class="step reveal"><div class="n">01 · LISTEN</div><h3>Aircraft as sensors</h3><p>Every airliner broadcasts its GPS position about once a second. ICHNOS reads open archives and rooftop receivers. It never transmits.</p></article>
+        <article class="step reveal"><div class="n">02 · DETECT</div><h3>Two lanes</h3><p>Lane 1 watches integrity drops (jamming). Lane 2 flags physically impossible jumps that pass track-consistency tests (spoofing).</p></article>
+        <article class="step reveal"><div class="n">03 · BOUND</div><h3>Radio physics</h3><p>A ground transmitter must be within line of sight of every affected aircraft. Intersecting those horizons gives a feasible region, never a false "fix".</p></article>
+        <article class="step reveal"><div class="n">04 · PROVE</div><h3>Open benchmark</h3><p>Results are scored against dated, cited Indian incidents, with confidence intervals and false-alarm bounds. Anyone can replay them.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="proof">
+    <div class="wrap">
+      <div class="eyebrow reveal">PROOF, NOT PROMISES</div>
+      <h2 class="reveal">Real data. Replayable numbers.</h2>
+      <p class="sub reveal" id="proof-note">These figures are read live from the ICHNOS pipeline output.</p>
+      <div class="proof">
+        <article class="stat reveal"><div class="num" id="p-reports">—</div><div class="what">ADS-B reports replayed over India</div></article>
+        <article class="stat reveal"><div class="num" id="p-aircraft">—</div><div class="what">Aircraft observed</div></article>
+        <article class="stat reveal"><div class="num" id="p-events">—</div><div class="what">Clustered interference events</div></article>
+        <article class="stat reveal"><div class="num" id="p-days">—</div><div class="what">Days of archive analysed</div></article>
+      </div>
+      <div class="recall reveal">
+        <div>
+          <div class="eyebrow">ICHNOS WINDOW RECALL</div>
+          <div class="num" id="p-recall">—</div>
+          <div class="src" id="p-recall-ci">Run the benchmark to populate this panel</div>
+        </div>
+        <div class="cibar" aria-hidden="true"><div class="cibar__ci" id="ci-band"></div><div class="cibar__pt" id="ci-pt"></div></div>
+      </div>
+      <div class="trust reveal">
+        <div><b>Receive-only</b><span>Never transmits, jams or spoofs.</span></div>
+        <div><b>Open data</b><span>adsb.lol archives, ODbL 1.0.</span></div>
+        <div><b>Sovereign</b><span>One Docker command, runs air-gapped.</span></div>
+        <div><b>Honest limits</b><span>Feasible regions, not location fixes.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="reveal">See it for yourself.</h2>
+      <p class="sub reveal center">Replay real jamming and spoofing events over Indian airspace.</p>
+      <a class="btn btn--primary reveal" href="/app.html">Open live replay →</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot__row">
+      <span>ICHNOS · SEVA FIRST 2026 · Dossier SEVA-2026-NAT-001-OP-014</span>
+      <span>Contains data from adsb.lol contributors, ODbL 1.0 · Receive-only</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/landing.js"></script>
+</body>
+</html>

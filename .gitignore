@@ -1,0 +1,39 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Data (large or regenerated; keep only folder placeholders and the manifest)
+data/raw/*
+data/parquet/*
+data/derived/*
+!data/**/.gitkeep
+*.tar
+*.part
+*.parquet.part
+
+# Drive packaging (local only)
+drive_export/
+scripts/drive_pack.py
+scripts/screenshots.py
+
+# Web
+web/node_modules/
+web/dist/
+web/.env
+web/.env.*
+web/src/*.bak
+.vercel/
+
+# Secrets and local env
+.env
+.env.*
+*.key
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log

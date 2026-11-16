@@ -1,0 +1,32 @@
+# STARTER benchmark. Narrow the times and check every citation before publishing results.
+windows:
+  - id: DEL-2025-11-spoof
+    class: spoof
+    airport: VIDP
+    radius_km: 120
+    start: "2025-11-04T00:00:00Z"
+    end: "2025-11-06T00:00:00Z"
+    confidence: media
+    citations:
+      - {publisher: "Business Today", date: "2025-11-06", url: "https://www.businesstoday.in/latest/economy/story/dgca-looking-into-gps-spoofing-over-delhi-amid-aviation-safety-concerns-500993-2025-11-06"}
+      - {publisher: "News On AIR (Rajya Sabha reply)", date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop"}
+    note: "Diversions reported on Tuesday night (4 Nov 2025 IST). IST night spans two UTC days."
+  - id: ATQ-2025-11-jam
+    class: jam
+    airport: VIAR
+    radius_km: 150
+    start: "2025-11-04T00:00:00Z"
+    end: "2025-11-06T00:00:00Z"
+    confidence: inferred
+    citations:
+      - {publisher: "TEN News (Lok Sabha reply)", date: "2026-03-12", url: "https://tennews.in/airlines-report-623-incidents-of-gps-spoofing-in-delhi-airspace-during-january-february/"}
+    note: "Border-region interference is reported as chronic; these exact dates are not individually confirmed."
+  - id: DEL-2025-10-control
+    class: control
+    airport: VIDP
+    radius_km: 120
+    start: "2025-10-14T00:00:00Z"
+    end: "2025-10-15T00:00:00Z"
+    confidence: inferred
+    citations: []
+    note: "No public reports found for this date. Verify before relying on it."
