@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use ICHNOS or its benchmark, please cite it as below."
+title: "ICHNOS: Open, replayable GNSS jamming and spoofing intelligence for Indian airspace"
+authors:
+  - given-names: Nandinee
+    affiliation: "Indira Gandhi Delhi Technical University for Women"
+version: 0.1.0
+date-released: 2026-11-17
+license: Apache-2.0
+repository-code: "https://github.com/TheNandinee/ichnos"
+url: "https://ichnos-vylk.vercel.app"
+keywords: [GNSS, GPS spoofing, GPS jamming, ADS-B, aviation safety, India]
