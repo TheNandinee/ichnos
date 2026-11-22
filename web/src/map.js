@@ -179,9 +179,11 @@ export class IchnosMap {
       type: 'circle',
       source: 'src-anomalies',
       paint: {
-        'circle-radius': 3,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 3, 7, 6, 10, 10],
         'circle-color': '#E5484D',
-        'circle-opacity': 0.88,
+        'circle-opacity': 0.95,
+        'circle-stroke-color': '#FFFFFF',
+        'circle-stroke-width': 1,
       },
     });
 
