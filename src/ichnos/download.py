@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from .config import DATA, RAW
 
 GH = "https://api.github.com/repos/adsblol/{repo}"
+READ_TIMEOUT_S = 300
+MAX_ATTEMPTS = 60
 
 
 def _api_headers():
@@ -76,14 +78,14 @@ def _fetch_asset(asset, f, sha):
     size, got, attempts = asset["size"], 0, 0
     while got < size:
         attempts += 1
-        if attempts > 10:
+        if attempts > MAX_ATTEMPTS:
             raise SystemExit(f"Gave up on {asset['name']} at {got}/{size} bytes. Check your connection and rerun.")
         headers = {"User-Agent": "ichnos-research"}
         if got:
             headers["Range"] = f"bytes={got}-"
         req = urllib.request.Request(asset["browser_download_url"], headers=headers)
         try:
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=READ_TIMEOUT_S) as r:
                 if got and getattr(r, "status", 200) != 206:
                     raise SystemExit("Server ignored the resume request. Delete data/raw/*.part and rerun.")
                 while True:
