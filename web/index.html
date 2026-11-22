@@ -75,6 +75,15 @@ img{display:block;max-width:100%}
 .hero-stats div:last-child{border-right:0}
 .hero-stats b{display:block;font-family:var(--mono);font-size:22px;font-weight:500}
 .hero-stats span{font-size:12.5px;color:var(--slate)}
+
+/* live */
+.live{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(8,13,24,.75);font-family:var(--mono);font-size:12.5px;color:var(--slate);max-width:100%;text-align:left}
+.live i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--slate)}
+.live.ok i{background:var(--green);box-shadow:0 0 0 0 rgba(43,182,115,.6);animation:pulse 2s infinite}
+.live.ok{border-color:rgba(43,182,115,.35)}
+.live b{color:var(--paper);font-weight:500}
+.live .warn{color:var(--amber)}
+
 .stage{position:relative;z-index:2;margin:64px auto 0;max-width:1120px;perspective:1800px}
 .frame{--tilt:16deg;transform:rotateX(var(--tilt));transform-origin:50% 0;transition:transform .12s linear;border-radius:18px;padding:1px;background:linear-gradient(180deg,rgba(0,179,199,.55),rgba(24,36,58,.4) 40%,rgba(24,36,58,.2));box-shadow:0 50px 140px -40px rgba(0,179,199,.35),0 30px 60px -30px rgba(0,0,0,.8)}
 .frame-in{background:var(--ink);border-radius:17px;overflow:hidden}
@@ -211,6 +220,7 @@ footer a:hover{color:var(--paper)}
   .nav-cta .btn-ghost{display:none}
   .hero{padding-top:120px}
   .hero-stats{flex-direction:column}.hero-stats div{border-right:0;border-bottom:1px solid var(--line)}.hero-stats div:last-child{border-bottom:0}
+  .live{border-radius:12px;font-size:12px}
   .record,.steps,.cards,.road,.fgrid{grid-template-columns:1fr}
   .record div{border-right:0;border-bottom:1px solid var(--line)}
   .facts li{grid-template-columns:1fr;gap:4px}
@@ -261,6 +271,7 @@ footer a:hover{color:var(--paper)}
       <div><b>47 / 48</b><span>impossible jumps within 150 km of Delhi IGI</span></div>
       <div><b>≈8×</b><span>control-day rate on 4 Nov 2025</span></div>
     </div>
+    <p class="live fade f4" id="live" aria-live="polite"><i></i><span id="live-text">Delhi right now: connecting to the live feed…</span></p>
   </div>
   <div class="wrap">
     <div class="stage fade f5">
@@ -464,7 +475,7 @@ footer a:hover{color:var(--paper)}
       <div><a class="brand" href="/"><img src="/favicon.svg" alt="" width="22" height="22" /><b>ICHNOS</b></a><p style="margin-top:14px;max-width:280px">The GPS integrity layer for Indian airspace.</p></div>
       <div><h4>Product</h4><a href="/app.html">Live replay</a><a href="#platform">Platform</a><a href="#benchmark">Benchmark</a></div>
       <div><h4>Trust</h4><span>Receive-only. Never transmits.</span><span>Data: adsb.lol contributors, ODbL 1.0</span><span>Code: Apache-2.0</span></div>
-      <div><h4>Context</h4><span>SEVA FIRST 2026 · Open proposal</span><span>Defence, Intelligence, Space &amp; National Security</span><span>Built at IGDTUW, Delhi</span></div>
+      <div><h4>Context</h4><span>SEVA FIRST 2026 · Open proposal</span><span>Defence, Intelligence, Space &amp; National Security</span><span></span></div>
     </div>
     <div class="fbase"><span>© 2026 ICHNOS</span><span>Basemap © MapTiler © OpenStreetMap contributors</span></div>
   </div>
@@ -574,6 +585,32 @@ function count(el) {
 }
 const co = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { co.unobserve(e.target); count(e.target); } }), { threshold: .4 });
 $$('[data-count]').forEach((el) => co.observe(el));
+
+/* live: "Delhi right now" from /api/live (Vercel function reading api.adsb.lol) */
+const liveEl = $('#live'), liveText = $('#live-text');
+async function liveTick() {
+  if (document.hidden) return;
+  try {
+    const r = await fetch('/api/live', { cache: 'no-store' });
+    if (!r.ok) throw 0;
+    const d = await r.json();
+    if (d.error) throw 0;
+    const ac = Number(d.aircraft) || 0, low = Number(d.low_nic) || 0, withNic = Number(d.with_nic) || 0;
+    const alt = Array.isArray(d.alt_outliers) ? d.alt_outliers.length : 0;
+    const time = new Date(d.generated_at).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    liveText.innerHTML =
+      `Delhi right now · ${time} IST · <b>${ac}</b> aircraft within 150 nm · ` +
+      `<b class="${low ? 'warn' : ''}">${low}/${withNic}</b> degraded GPS integrity · ` +
+      `<b class="${alt ? 'warn' : ''}">${alt}</b> altitude mismatches`;
+    liveEl.classList.add('ok');
+  } catch {
+    liveEl.classList.remove('ok');
+    liveText.textContent = 'Delhi right now: live feed unavailable at the moment.';
+  }
+}
+liveTick();
+setInterval(liveTick, 30000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) liveTick(); });
 
 /* live data */
 const get = async (p) => { try { const r = await fetch(p); if (!r.ok) throw 0; return await r.json(); } catch { return null; } };
