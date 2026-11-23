@@ -1,0 +1,300 @@
+{
+  "generated_at": "2026-11-23T18:44:08+00:00",
+  "n_days": 63,
+  "n_reports": 73226643,
+  "first_day": "2025-03-05",
+  "last_day": "2026-02-25",
+  "delhi": {
+    "top_run": 8,
+    "top_days": [
+      {
+        "day": "2025-11-01",
+        "reported": true,
+        "jam_share": 0.32033898305084746,
+        "altdiv_share": 0.03511705685618729,
+        "spoof_jumps": 10
+      },
+      {
+        "day": "2025-11-02",
+        "reported": true,
+        "jam_share": 0.315,
+        "altdiv_share": 0.07820299500831947,
+        "spoof_jumps": 24
+      },
+      {
+        "day": "2025-10-31",
+        "reported": true,
+        "jam_share": 0.23415492957746478,
+        "altdiv_share": 0.01386481802426343,
+        "spoof_jumps": 9
+      },
+      {
+        "day": "2025-11-04",
+        "reported": true,
+        "jam_share": 0.20481927710843373,
+        "altdiv_share": 0.048414023372287146,
+        "spoof_jumps": 39
+      },
+      {
+        "day": "2025-11-03",
+        "reported": true,
+        "jam_share": 0.19262981574539365,
+        "altdiv_share": 0.028333333333333332,
+        "spoof_jumps": 20
+      },
+      {
+        "day": "2025-11-05",
+        "reported": true,
+        "jam_share": 0.1546218487394958,
+        "altdiv_share": 0.025167785234899327,
+        "spoof_jumps": 8
+      },
+      {
+        "day": "2025-10-30",
+        "reported": true,
+        "jam_share": 0.13286713286713286,
+        "altdiv_share": 0.017152658662092625,
+        "spoof_jumps": 7
+      },
+      {
+        "day": "2026-01-14",
+        "reported": true,
+        "jam_share": 0.10486322188449848,
+        "altdiv_share": 0.017937219730941704,
+        "spoof_jumps": 14
+      },
+      {
+        "day": "2025-05-10",
+        "reported": false,
+        "jam_share": 0.09659090909090909,
+        "altdiv_share": 0.0056657223796034,
+        "spoof_jumps": 0
+      },
+      {
+        "day": "2025-12-17",
+        "reported": false,
+        "jam_share": 0.08995502248875563,
+        "altdiv_share": 0.0058997050147492625,
+        "spoof_jumps": 4
+      }
+    ],
+    "nov4": {
+      "del_aircraft": 599,
+      "del_jam": 0.20481927710843373,
+      "rest_jam": 0.050120772946859904,
+      "del_alt": 0.048414023372287146,
+      "rest_alt": 0.005306603773584905,
+      "del_jumps": 39,
+      "total_jumps": 39
+    }
+  },
+  "atq": {
+    "feed_days": 24,
+    "jam_min": 0.2129032258064516,
+    "jam_max": 0.6403940886699507
+  },
+  "leaderboard": [
+    {
+      "region": "DEL",
+      "method": "spoof_jumps",
+      "auc": 0.8503267973856209,
+      "auc_ci": [
+        0.7202287581699346,
+        0.9588235294117647
+      ],
+      "p_one_sided": 3.692517690466622e-06,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "rules_spoof",
+      "auc": 0.8470588235294118,
+      "auc_ci": [
+        0.7124019607843137,
+        0.9555555555555556
+      ],
+      "p_one_sided": 1.4178219448045162e-05,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "spoof_altitude",
+      "auc": 0.803921568627451,
+      "auc_ci": [
+        0.6601143790849673,
+        0.9241830065359478
+      ],
+      "p_one_sided": 0.0001237960426729842,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "integrity_jam",
+      "auc": 0.7869281045751634,
+      "auc_ci": [
+        0.6391830065359476,
+        0.9150326797385621
+      ],
+      "p_one_sided": 0.0002744071505189734,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 4,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.29998832134152864,
+        0.9032306674407831
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "model",
+      "auc": 0.730718954248366,
+      "auc_ci": [
+        0.5777777777777777,
+        0.8640522875816994
+      ],
+      "p_one_sided": 0.0027417335212880315,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 4,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.29998832134152864,
+        0.9032306674407831
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "region": "ATQ",
+      "median_aircraft_per_day": 194.5,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "BLR",
+      "median_aircraft_per_day": 404.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "BOM",
+      "median_aircraft_per_day": 610.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "CCU",
+      "median_aircraft_per_day": 440.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "DEL",
+      "median_aircraft_per_day": 535.0,
+      "positive_days": 17,
+      "negative_days": 45,
+      "scorable": true,
+      "reason": null
+    },
+    {
+      "region": "HYD",
+      "median_aircraft_per_day": 343.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "MAA",
+      "median_aircraft_per_day": 148.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    }
+  ],
+  "ablation": [
+    {
+      "method": "model_full",
+      "auc": 0.8767501558299682,
+      "recall_at_fpr_0.1pct": 0.530405939030169,
+      "fpr": 0.0010000455995635021,
+      "recall_drift": 0.7948717948717948,
+      "recall_jump": 0.07426778242677824,
+      "recall_altitude": 0.6466766616691654
+    },
+    {
+      "method": "model_no_kinematic",
+      "auc": 0.7444084740136189,
+      "recall_at_fpr_0.1pct": 0.2190807139472437,
+      "fpr": 0.0009843216121489817,
+      "recall_drift": 0.0012406947890818859,
+      "recall_jump": 0.0,
+      "recall_altitude": 0.6916541729135433
+    },
+    {
+      "method": "model_no_altitude",
+      "auc": 0.7766633683109067,
+      "recall_at_fpr_0.1pct": 0.3432317169483494,
+      "fpr": 0.0010000455995635021,
+      "recall_drift": 0.7948717948717948,
+      "recall_jump": 0.08263598326359832,
+      "recall_altitude": 0.046476761619190406
+    },
+    {
+      "method": "model_no_integrity",
+      "auc": 0.8756905654695349,
+      "recall_at_fpr_0.1pct": 0.5209287632285579,
+      "fpr": 0.0010000455995635021,
+      "recall_drift": 0.782051282051282,
+      "recall_jump": 0.07165271966527197,
+      "recall_altitude": 0.6346826586706646
+    },
+    {
+      "method": "rules (lanes A+B)",
+      "auc": null,
+      "recall_at_fpr_0.1pct": 0.04849154951824356,
+      "fpr": 0.0005000227997817511,
+      "recall_drift": 0.030603804797353185,
+      "recall_jump": 0.034518828451882845,
+      "recall_altitude": 0.08345827086456771
+    },
+    {
+      "method": "rules OR model",
+      "auc": null,
+      "recall_at_fpr_0.1pct": 0.5338809034907598,
+      "fpr": 0.0013176701453368157
+    }
+  ],
+  "attribution": "Contains data from adsb.lol contributors, ODbL 1.0"
+}

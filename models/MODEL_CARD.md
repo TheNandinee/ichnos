@@ -20,3 +20,7 @@ Test: 4 other clean days, attacks injected with a different seed. Threshold set 
 - Real archives pass through readsb's own position filter, so real jumps look different from injected ones.
 - 'Clean' days may still contain unreported interference.
 - Real-world evidence is the day-level benchmark: python -m ichnos.bench_v1
+
+## Real-world result (IN-RFI-Replay v1)
+Day-level AUC on Delhi reported vs ordinary days: 0.73 (95% CI 0.58–0.86), 4/6 windows, the lowest of all methods.
+The rule lanes score 0.79–0.85. The model does not yet transfer from injected to real spoofing, so the rules remain primary.

@@ -37,7 +37,6 @@ img{display:block;max-width:100%}
 .btn-ghost:hover{border-color:var(--cyan)}
 .btn-sm{height:36px;padding:0 14px;font-size:13.5px;border-radius:8px}
 
-/* nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;height:68px;display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
 .nav.scrolled{background:rgba(5,7,13,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -47,7 +46,6 @@ img{display:block;max-width:100%}
 .nav-links a:hover{color:var(--paper)}
 .nav-cta{display:flex;gap:10px}
 
-/* hero */
 .hero{position:relative;padding:150px 0 0;overflow:hidden}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero::before{content:"";position:absolute;inset:-20% -10% auto;height:900px;z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(0,179,199,.18),transparent 70%)}
@@ -70,16 +68,15 @@ img{display:block;max-width:100%}
 .fade{opacity:0;transform:translateY(14px);animation:fade .9s cubic-bezier(.2,.7,.2,1) forwards}
 .f1{animation-delay:.05s}.f2{animation-delay:.35s}.f3{animation-delay:.5s}.f4{animation-delay:.65s}.f5{animation-delay:.8s}
 @keyframes fade{to{opacity:1;transform:none}}
-.hero-stats{display:flex;justify-content:center;gap:0;margin:44px auto 0;border:1px solid var(--line);border-radius:14px;background:rgba(8,13,24,.75);max-width:860px}
+.hero-stats{display:flex;justify-content:center;margin:44px auto 0;border:1px solid var(--line);border-radius:14px;background:rgba(8,13,24,.75);max-width:900px}
 .hero-stats div{flex:1;padding:16px 20px;border-right:1px solid var(--line);text-align:left}
 .hero-stats div:last-child{border-right:0}
 .hero-stats b{display:block;font-family:var(--mono);font-size:22px;font-weight:500}
 .hero-stats span{font-size:12.5px;color:var(--slate)}
 
-/* live */
 .live{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(8,13,24,.75);font-family:var(--mono);font-size:12.5px;color:var(--slate);max-width:100%;text-align:left}
 .live i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--slate)}
-.live.ok i{background:var(--green);box-shadow:0 0 0 0 rgba(43,182,115,.6);animation:pulse 2s infinite}
+.live.ok i{background:var(--green);animation:pulse 2s infinite}
 .live.ok{border-color:rgba(43,182,115,.35)}
 .live b{color:var(--paper);font-weight:500}
 .live .warn{color:var(--amber)}
@@ -95,7 +92,6 @@ img{display:block;max-width:100%}
 .frame-fallback{position:absolute;inset:0;display:none;place-items:center;font-family:var(--mono);font-size:13px;color:var(--slate)}
 .frame.missing img{display:none}.frame.missing .frame-fallback{display:grid}
 
-/* built on */
 .built{padding:70px 0 20px;text-align:center}
 .built p{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--slate);margin-bottom:20px}
 .built ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:12px 40px;color:#7f8a9c;font-weight:600;font-size:16px;letter-spacing:.02em}
@@ -104,7 +100,6 @@ section{position:relative}
 .sec{padding:140px 0}
 .sec+.sec{border-top:1px solid var(--line)}
 
-/* record */
 .record{display:grid;grid-template-columns:repeat(4,1fr);margin-top:60px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .record div{padding:34px 28px;border-right:1px solid var(--line);background:var(--ink)}
 .record div:last-child{border-right:0}
@@ -114,7 +109,6 @@ section{position:relative}
 .kicker{margin-top:56px;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em;text-align:center}
 .kicker .serif{color:var(--saffron)}
 
-/* reveal */
 .split{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
 .facts{list-style:none;margin:32px 0 22px}
 .facts li{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line);color:var(--soft);font-size:15.5px}
@@ -132,7 +126,6 @@ section{position:relative}
 .compare .miss{position:absolute;inset:0;display:none;place-items:center;padding:30px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--slate)}
 .compare.missing img,.compare.missing .bar,.compare.missing .knob,.compare.missing .tag{display:none}.compare.missing .miss{display:grid}
 
-/* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px}
 .step{position:relative;padding:28px 24px 30px;border:1px solid var(--line);border-radius:16px;background:var(--ink);overflow:hidden}
 .step::before{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:var(--cyan);transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
@@ -142,7 +135,6 @@ section{position:relative}
 .step h3{font-size:20px;letter-spacing:-.01em;margin:8px 0 10px}
 .step p{color:var(--soft);font-size:14.5px}
 
-/* platform */
 .plat{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
 .plist{list-style:none;margin-top:28px;display:grid;gap:16px}
 .plist li{display:grid;grid-template-columns:28px 1fr;gap:14px;color:var(--soft);font-size:15.5px}
@@ -154,7 +146,6 @@ section{position:relative}
 .code pre{padding:22px 24px;overflow-x:auto;font-family:var(--mono);font-size:13.5px;line-height:1.8;color:var(--soft)}
 .code .c{color:#5c6779}.code .k{color:var(--cyan)}.code .s{color:var(--saffron)}.code .v{color:#97E0B9}
 
-/* cards */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px}
 .card{position:relative;padding:28px 24px;border:1px solid var(--line);border-radius:16px;background:var(--ink);overflow:hidden;transition:border-color .25s,transform .25s}
 .card:hover{border-color:rgba(0,179,199,.55);transform:translateY(-3px)}
@@ -164,43 +155,38 @@ section{position:relative}
 .card h3{font-size:19px;margin:10px 0 8px}
 .card p{color:var(--soft);font-size:14.5px}
 
-/* benchmark */
-.bench{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
 .panel{padding:30px;border:1px solid var(--line);border-radius:16px;background:var(--ink)}
-.row{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);color:var(--soft);font-size:15px}
-.row b{font-family:var(--mono);font-weight:500;color:var(--paper)}
-.ci{position:relative;height:8px;border-radius:4px;background:#132038;margin:26px 0 12px}
-.ci i{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:4px;background:rgba(0,179,199,.45);transition:all 1.3s cubic-bezier(.2,.7,.2,1)}
-.ci s{position:absolute;top:-5px;left:0;width:2px;height:18px;background:var(--cyan);transition:left 1.3s cubic-bezier(.2,.7,.2,1)}
+.panel h3{font-size:20px;margin-bottom:6px}
+.panel .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.badge{font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:4px 9px;border-radius:6px;color:var(--green);border:1px solid rgba(43,182,115,.45)}
+.bench-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.lb-wrap{overflow-x:auto;margin-top:56px}
+.lb{width:100%;border-collapse:collapse;font-size:14.5px}
+.lb th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--slate);font-weight:500;padding:10px 10px;border-bottom:1px solid var(--line2);white-space:nowrap}
+.lb td{padding:13px 10px;border-bottom:1px solid var(--line);color:var(--soft);vertical-align:middle}
+.lb td.m{color:var(--paper)}
+.lb td b{font-family:var(--mono);font-weight:500;color:var(--paper)}
+.lb tr.best td b{color:var(--cyan)}
+.aucbar{position:relative;display:inline-block;width:160px;height:8px;border-radius:4px;background:#132038;vertical-align:middle}
+.aucbar i{position:absolute;top:0;bottom:0;border-radius:4px;background:rgba(0,179,199,.45)}
+.aucbar s{position:absolute;top:-4px;width:2px;height:16px;background:var(--cyan)}
+.note{margin-top:14px;color:var(--slate);font-size:13.5px}
 .limits{border-color:rgba(255,153,51,.35);background:rgba(255,153,51,.035)}
-.limits h3,.v1 h3{font-size:20px;margin-bottom:16px}
-.limits ul{list-style:none;display:grid;gap:14px}
-.limits li{padding-left:18px;position:relative;color:var(--soft);font-size:15px}
+.limits ul{list-style:none;display:grid;gap:13px;margin-top:12px}
+.limits li{padding-left:18px;position:relative;color:var(--soft);font-size:14.5px}
 .limits li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--saffron)}
 .limits strong{color:var(--paper)}
-.v1{margin-top:16px}
-.v1 .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.v1 .badge{font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:4px 9px;border-radius:6px;color:var(--saffron);border:1px solid rgba(255,153,51,.45)}
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 18px}
-.tiers div{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
-.tiers b{display:block;font-family:var(--mono);font-size:30px;font-weight:500;color:var(--cyan);line-height:1.1}
-.tiers strong{display:block;font-size:14px;margin:6px 0 4px}
-.tiers span{font-size:13px;color:var(--slate)}
-.v1 p{color:var(--soft);font-size:15px}
 
-/* roadmap */
 .road{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:64px;position:relative}
 .road::before{content:"";position:absolute;left:7px;right:0;top:7px;border-top:1px dashed var(--line2)}
 .road li{position:relative;padding-top:36px}
 .road li::before{content:"";position:absolute;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--line2)}
 .road li.done::before{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 0 6px rgba(0,179,199,.15)}
-.road li.wip::before{background:linear-gradient(90deg,var(--saffron) 50%,var(--bg) 50%);border-color:var(--saffron)}
 .road .n{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--cyan)}
-.road .st{display:inline-block;margin-left:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--saffron)}
+.road .st{display:inline-block;margin-left:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--green)}
 .road h3{font-size:17px;margin:8px 0 6px}
 .road p{color:var(--soft);font-size:14px}
 
-/* final */
 .final{padding:170px 0;text-align:center;overflow:hidden}
 .final::before{content:"";position:absolute;left:50%;top:50%;width:900px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,153,51,.12),transparent 70%);pointer-events:none}
 .final h2{position:relative;font-size:clamp(40px,6vw,80px);line-height:1;letter-spacing:-.045em;font-weight:800;margin-bottom:22px}
@@ -220,11 +206,12 @@ footer a:hover{color:var(--paper)}
 
 @media (max-width:1024px){
   .nav-links{display:none}
-  .record,.steps,.cards,.tiers{grid-template-columns:1fr 1fr}
+  .record,.steps,.cards{grid-template-columns:1fr 1fr}
   .record div:nth-child(2){border-right:0}.record div:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .split,.plat,.bench{grid-template-columns:1fr;gap:48px}
+  .split,.plat,.bench-grid{grid-template-columns:1fr;gap:48px}
   .road{grid-template-columns:1fr 1fr}.road::before{display:none}
   .fgrid{grid-template-columns:1fr 1fr}
+  .aucbar{width:100px}
 }
 @media (max-width:640px){
   .wrap{padding:0 20px}
@@ -232,10 +219,11 @@ footer a:hover{color:var(--paper)}
   .hero{padding-top:120px}
   .hero-stats{flex-direction:column}.hero-stats div{border-right:0;border-bottom:1px solid var(--line)}.hero-stats div:last-child{border-bottom:0}
   .live{border-radius:12px;font-size:12px}
-  .record,.steps,.cards,.road,.fgrid,.tiers{grid-template-columns:1fr}
+  .record,.steps,.cards,.road,.fgrid{grid-template-columns:1fr}
   .record div{border-right:0;border-bottom:1px solid var(--line)}
   .facts li{grid-template-columns:1fr;gap:4px}
   .sec{padding:100px 0}
+  .lb .viz{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -252,8 +240,8 @@ footer a:hover{color:var(--paper)}
     <div class="nav-links">
       <a href="#evidence">Evidence</a>
       <a href="#how">How it works</a>
-      <a href="#platform">Platform</a>
       <a href="#benchmark">Benchmark</a>
+      <a href="#platform">Platform</a>
       <a href="#roadmap">Roadmap</a>
     </div>
     <div class="nav-cta">
@@ -266,7 +254,7 @@ footer a:hover{color:var(--paper)}
 <header class="hero" id="hero">
   <canvas id="sky" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
-    <a class="chip fade f1" href="#evidence"><i></i><span id="chip-text">Replaying real ADS-B data over India</span><span>→</span></a>
+    <a class="chip fade f1" href="#evidence"><i></i><span id="chip-text">63 days of real ADS-B data replayed over India</span><span>→</span></a>
     <h1>
       <span class="ln"><span>The GPS integrity layer</span></span>
       <span class="ln"><span>for <span class="serif">Indian airspace.</span></span></span>
@@ -278,9 +266,9 @@ footer a:hover{color:var(--paper)}
       <a class="btn btn-ghost" href="#evidence">See the evidence</a>
     </div>
     <div class="hero-stats fade f4">
-      <div><b id="hs-reports">3,376,385</b><span>real ADS-B reports replayed</span></div>
-      <div><b>20.5% vs 6.6%</b><span>aircraft showing jamming, Delhi vs rest of India, 4 Nov 2025</span></div>
-      <div><b>39 / 39</b><span>impossible position jumps that day were in the Delhi region</span></div>
+      <div><b id="hs-top">Top 7</b><span>Delhi jamming days of <span id="hs-days">63</span> sampled all fall in the reported spoofing week</span></div>
+      <div><b id="hs-auc">0.85</b><span id="hs-auc-l">day-level AUC on IN-RFI-Replay v1 (95% CI 0.72–0.96)</span></div>
+      <div><b id="hs-reports">63 days</b><span>of verified ADS-B reports, Mar 2025 – Feb 2026</span></div>
     </div>
     <p class="live fade f4" id="live" aria-live="polite"><i></i><span id="live-text">Delhi right now: connecting to the live feed…</span></p>
   </div>
@@ -306,7 +294,7 @@ footer a:hover{color:var(--paper)}
 
 <section class="sec">
   <div class="wrap">
-    <div class="center" style="text-align:center">
+    <div style="text-align:center">
       <span class="eyebrow rv">On the record</span>
       <h2 class="h2 rv">India's navigation layer is under attack.</h2>
     </div>
@@ -323,16 +311,17 @@ footer a:hover{color:var(--paper)}
 <section class="sec" id="evidence">
   <div class="wrap split">
     <div>
-      <span class="eyebrow rv">The reveal · Delhi, 4 Nov 2025</span>
+      <span class="eyebrow rv">The reveal · Delhi, 30 Oct – 5 Nov 2025</span>
       <h2 class="h2 rv">A standard map sees jamming. ICHNOS also sees <span class="serif">spoofing.</span></h2>
-      <p class="lede rv">Integrity-based maps colour Delhi orange and stop there. ICHNOS also checks two things a spoofer cannot fake: how fast an airliner can really move, and the air pressure outside it.</p>
+      <p class="lede rv">Integrity-based maps colour Delhi orange and stop there. ICHNOS also checks two things a spoofer cannot fake, how fast an airliner can really move and the air pressure outside it, and tracks them every day across a year.</p>
       <ul class="facts">
-        <li class="rv"><b data-count="20.5" data-decimals="1" data-suffix="%">0</b><span>of normally healthy aircraft within 150 km of Delhi IGI showed jamming on 4 Nov 2025, against <strong>6.6%</strong> in the rest of India.</span></li>
-        <li class="rv"><b data-count="4.8" data-decimals="1" data-suffix="%">0</b><span>showed a GPS-versus-air-pressure altitude mismatch, against <strong>1.3%</strong> elsewhere. A spoofer can fake GPS, not the air.</span></li>
-        <li class="rv"><b data-count="39">0</b><span>physically impossible position jumps were detected in India that day, and <strong>all 39</strong> were in the Delhi region.</span></li>
-        <li class="rv"><b data-count="0">0</b><span>aircraft in the archive within 150 km of Amritsar. The border is a <strong>coverage gap</strong>, not a quiet zone.</span></li>
+        <li class="rv"><b id="f-top" data-count="7">0</b><span>highest-jamming Delhi days out of <strong id="f-days">63</strong> sampled all fall in the officially reported spoofing week. The year's other days stay at or below 10.5%.</span></li>
+        <li class="rv"><b id="f-jam" data-count="20.5" data-decimals="1" data-suffix="%">0</b><span>of normally healthy aircraft around Delhi showed jamming on 4 Nov 2025, against <strong id="f-jam-rest">5.0%</strong> in the rest of the study area.</span></li>
+        <li class="rv"><b id="f-alt" data-count="4.8" data-decimals="1" data-suffix="%">0</b><span>showed a GPS-versus-air-pressure altitude mismatch, against <strong id="f-alt-rest">0.5%</strong> elsewhere. A spoofer can fake GPS, not the air.</span></li>
+        <li class="rv"><b id="f-jumps" data-count="39">0</b><span>physically impossible position jumps were detected that day, and <strong>all</strong> were in the Delhi region.</span></li>
+        <li class="rv"><b id="f-atq">21–64%</b><span>of healthy aircraft near Amritsar show jamming on the <strong id="f-atq-days">26</strong> days the archive can see the border at all.</span></li>
       </ul>
-      <p class="src rv">Upgraded pipeline on the verified release v2025.11.04-planes-readsb-prod-0 (adsb.lol, ODbL) · comparison images from the initial run</p>
+      <p class="src rv">Daily index over verified adsb.lol releases (ODbL), Mar 2025 – Feb 2026 · comparison images from the initial run</p>
     </div>
     <div class="compare rv" id="compare">
       <img src="/compare-standard.png" alt="Standard integrity-only map of Delhi on 4 November 2025" onerror="this.closest('.compare').classList.add('missing')" />
@@ -371,8 +360,58 @@ footer a:hover{color:var(--paper)}
       <article class="step rv">
         <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6"><rect x="4" y="18" width="32" height="4" rx="2" stroke="#223350"/><rect x="10" y="18" width="20" height="4" rx="2" fill="rgba(0,179,199,.45)"/><path d="M20 13v14" stroke="#00B3C7" stroke-width="2"/></svg>
         <div class="n">04 · PROVE</div><h3>An open benchmark</h3>
-        <p>Daily scores are tested against cited Indian incident windows, with confidence intervals. Regions without coverage are reported, never hidden.</p>
+        <p>Every lane is scored on IN-RFI-Replay v1: 14 cited Indian windows and a year of sampled days, with confidence intervals. Coverage gaps are reported, never hidden.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="benchmark">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow rv">Benchmark · IN-RFI-Replay v1</span>
+      <h2 class="h2 rv">Honest numbers, with error bars.</h2>
+      <p class="lede center rv">Delhi, <span id="b-pos">17</span> officially reported days against <span id="b-neg">45</span> ordinary days. AUC is the chance a reported day scores above an ordinary one: 0.5 is a coin toss, 1.0 is perfect.</p>
+    </div>
+    <div class="panel lb-wrap rv">
+      <div class="head"><h3>Leaderboard</h3><span class="badge">PUBLISHED · v1.0-benchmark</span></div>
+      <table class="lb">
+        <thead><tr><th>METHOD</th><th>DAY AUC (95% CI)</th><th class="viz">0.5 ─── 1.0</th><th>WINDOWS HIT</th><th>P (ONE-SIDED)</th></tr></thead>
+        <tbody id="lb-body">
+          <tr class="best"><td class="m">Track jumps · lane 2</td><td><b>0.85</b> <span class="src">0.72–0.96</span></td><td class="viz"><span class="aucbar"><i style="left:44%;width:48%"></i><s style="left:70%"></s></span></td><td><b>5/6</b></td><td class="src">&lt;0.001</td></tr>
+          <tr><td class="m">Spoofing rules combined</td><td><b>0.85</b> <span class="src">0.71–0.96</span></td><td class="viz"><span class="aucbar"><i style="left:42%;width:50%"></i><s style="left:70%"></s></span></td><td><b>5/6</b></td><td class="src">&lt;0.001</td></tr>
+          <tr><td class="m">Altitude mismatch · lane 3</td><td><b>0.80</b> <span class="src">0.66–0.92</span></td><td class="viz"><span class="aucbar"><i style="left:32%;width:52%"></i><s style="left:60%"></s></span></td><td><b>5/6</b></td><td class="src">&lt;0.001</td></tr>
+          <tr><td class="m">Integrity-only jamming · lane 1</td><td><b>0.79</b> <span class="src">0.64–0.92</span></td><td class="viz"><span class="aucbar"><i style="left:28%;width:56%"></i><s style="left:58%"></s></span></td><td><b>4/6</b></td><td class="src">&lt;0.001</td></tr>
+          <tr><td class="m">Learned model</td><td><b>0.73</b> <span class="src">0.58–0.86</span></td><td class="viz"><span class="aucbar"><i style="left:16%;width:56%"></i><s style="left:46%"></s></span></td><td><b>4/6</b></td><td class="src">0.003</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Every lane separates reported from ordinary days. The spoofing lanes come out slightly ahead of integrity-only, but the intervals overlap, so they are not shown to be better.</p>
+    </div>
+    <div class="bench-grid">
+      <div class="panel rv">
+        <div class="head"><h3>Learned detector · ablation</h3><span class="src">simulated attacks · FPR 0.1%</span></div>
+        <table class="lb">
+          <thead><tr><th>METHOD</th><th>RECALL</th><th>DRIFT</th><th>JUMP</th><th>ALTITUDE</th></tr></thead>
+          <tbody id="abl-body">
+            <tr class="best"><td class="m">Model, all features</td><td><b>53.0%</b></td><td>79.5%</td><td>7.4%</td><td>64.7%</td></tr>
+            <tr><td class="m">… without kinematic</td><td><b>21.9%</b></td><td>0.1%</td><td>0.0%</td><td>69.2%</td></tr>
+            <tr><td class="m">… without altitude</td><td><b>34.3%</b></td><td>79.5%</td><td>8.3%</td><td>4.6%</td></tr>
+            <tr><td class="m">… without integrity</td><td><b>52.1%</b></td><td>78.2%</td><td>7.2%</td><td>63.5%</td></tr>
+            <tr><td class="m">Physics rules (lanes 2 + 3)</td><td><b>4.8%</b></td><td>3.1%</td><td>3.5%</td><td>8.3%</td></tr>
+          </tbody>
+        </table>
+        <p class="note">On simulated spoofing the model catches about 11× more than the rules. On real reported days it ranks last (AUC 0.73), so the physics rules stay primary.</p>
+      </div>
+      <div class="panel limits rv">
+        <h3>What we don't claim</h3>
+        <ul>
+          <li><strong>Overlapping intervals.</strong> The lanes are not proven better than integrity-only maps, only comparable and slightly ahead.</li>
+          <li><strong>One scorable region.</strong> Only Delhi has dated labels, and its six windows overlap.</li>
+          <li><strong>Coverage changes.</strong> With the border receiver held constant, the Jan–Feb 2026 jamming signal is inconclusive (AUC 0.69, p 0.08). The reported November week survives that control.</li>
+          <li><strong>Simulation gap.</strong> The learned model learns injected attacks that do not yet look like real spoofing.</li>
+          <li><strong>No location fixes.</strong> Feasible regions and estimates with error radii only. Precise border estimates are never published.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -386,8 +425,8 @@ footer a:hover{color:var(--paper)}
       <ul class="plist">
         <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg><div><strong>Replay API</strong>Events with window, aircraft count, lane, threshold and feasible region, over REST.</div></li>
         <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><div><strong>Sovereign by design</strong>One Docker command, runs air-gapped. Public tier coarsened; precise estimates stay in a restricted tier.</div></li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M5 20V10M12 20V4M19 20v-7"/></svg><div><strong>Open benchmark</strong>IN-RFI-Replay v1: cited Indian incident windows, a neutral yardstick for any detector or vendor.</div></li>
-        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M12 14v7M8 21h8M7 9a5 5 0 0 1 10 0M4 6a9 9 0 0 1 16 0"/></svg><div><strong>₹20k ground nodes</strong>Receive-only receivers fill coverage gaps near the border and add NavIC monitoring.</div></li>
+        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M5 20V10M12 20V4M19 20v-7"/></svg><div><strong>Open benchmark</strong>IN-RFI-Replay v1: 14 cited windows, a public scorer and a leaderboard any vendor can enter.</div></li>
+        <li class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="#00B3C7" stroke-width="1.8"><path d="M12 14v7M8 21h8M7 9a5 5 0 0 1 10 0M4 6a9 9 0 0 1 16 0"/></svg><div><strong>₹20k ground nodes</strong>Receive-only receivers to make border coverage continuous instead of one volunteer feed that comes and goes.</div></li>
       </ul>
     </div>
     <div class="code rv">
@@ -401,8 +440,7 @@ footer a:hover{color:var(--paper)}
     <span class="k">"t_start_ms"</span>: <span class="v">1762244871700</span>,
     <span class="k">"t_end_ms"</span>: <span class="v">1762264756350</span>,
     <span class="k">"n_aircraft"</span>: <span class="v">108</span>,
-    <span class="k">"n_anomalies"</span>: <span class="v">419</span>,
-    <span class="k">"region_area_km2"</span>: <span class="v">12371</span>
+    <span class="k">"n_anomalies"</span>: <span class="v">419</span>
   }
 }</code></pre>
     </div>
@@ -424,46 +462,6 @@ footer a:hover{color:var(--paper)}
   </div>
 </section>
 
-<section class="sec" id="benchmark">
-  <div class="wrap">
-    <div style="text-align:center">
-      <span class="eyebrow rv">Benchmark</span>
-      <h2 class="h2 rv">Honest numbers, with error bars.</h2>
-      <p class="lede center rv">Read live from the latest pipeline run. Every figure is replayable from a hashed public release.</p>
-    </div>
-    <div class="bench">
-      <div class="panel rv">
-        <div class="row"><span>Reports replayed</span><b id="b-reports">—</b></div>
-        <div class="row"><span>Aircraft-days observed</span><b id="b-aircraft">—</b></div>
-        <div class="row"><span>Clustered events</span><b id="b-events">—</b></div>
-        <div class="row"><span>Window recall (first benchmark)</span><b id="b-recall">—</b></div>
-        <div class="ci"><i id="ci-band"></i><s id="ci-pt"></s></div>
-        <span class="src" id="b-ci">Run the benchmark to populate this panel</span>
-      </div>
-      <div class="panel limits rv">
-        <h3>What we don't claim</h3>
-        <ul>
-          <li><strong>Recall ties on the first benchmark.</strong> With only two labelled windows, integrity-only maps and ICHNOS detect the same ones. The added value is telling spoofing from jamming.</li>
-          <li><strong>Labels are time windows</strong> from public reports, not exact events. Unreported days may still contain interference.</li>
-          <li><strong>ADS-B under-counts</strong> where receivers are thin. Around Amritsar the archive had zero aircraft.</li>
-          <li><strong>The learned detector is trained on simulated attacks.</strong> Its scores on injected attacks are not real-world recall.</li>
-          <li><strong>No location fixes.</strong> Physics gives a region or an estimate with an error radius. Direction-finding is the Wireless Monitoring Organisation's job.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel v1 rv">
-      <div class="head"><h3>IN-RFI-Replay v1 · 14 cited windows</h3><span class="badge">12-MONTH EVALUATION IN PROGRESS</span></div>
-      <div class="tiers">
-        <div><b>4</b><strong>Dated</strong><span>Delhi, 30 Oct – 7 Nov 2025</span></div>
-        <div><b>2</b><strong>Period</strong><span>Delhi, Jan and Feb 2026 (623 official reports)</span></div>
-        <div><b>7</b><strong>Chronic</strong><span>Amritsar and five airports, undated reports</span></div>
-        <div><b>1</b><strong>Exploratory</strong><span>Op Sindoor, 7–10 May 2025 (excluded)</span></div>
-      </div>
-      <p>Each detector gets a day-level AUC with a 95% confidence interval: how often a reported day scores above an ordinary one. A weekly sample spanning March 2025 – February 2026 is being replayed; the leaderboard and the learned-detector ablation will be published when it completes.</p>
-    </div>
-  </div>
-</section>
-
 <section class="sec" id="roadmap">
   <div class="wrap">
     <div style="text-align:center">
@@ -471,9 +469,9 @@ footer a:hover{color:var(--paper)}
       <h2 class="h2 rv">From replay to live national coverage.</h2>
     </div>
     <ol class="road">
-      <li class="rv done"><div class="n">NOW</div><h3>Replay prototype</h3><p>Real archive days, three detection lanes, web replay and a live Delhi panel.</p></li>
-      <li class="rv wip"><div class="n">DAY 20<span class="st">IN PROGRESS</span></div><h3>Benchmark v1</h3><p>14 cited windows built; 12-month weekly replay running.</p></li>
-      <li class="rv wip"><div class="n">DAY 35<span class="st">IN PROGRESS</span></div><h3>Learned detector</h3><p>Trained on injected attacks; ablation against the rules runs when the data lands.</p></li>
+      <li class="rv done"><div class="n">NOW</div><h3>Replay prototype</h3><p>Three detection lanes, web replay and a live Delhi panel.</p></li>
+      <li class="rv done"><div class="n">DAY 20<span class="st">DONE</span></div><h3>Benchmark v1</h3><p>14 cited windows, 63 archive days, public scorer and leaderboard.</p></li>
+      <li class="rv done"><div class="n">DAY 35<span class="st">DONE</span></div><h3>Learned detector</h3><p>11× the rules on simulated attacks; does not yet transfer to real days.</p></li>
       <li class="rv"><div class="n">DAY 45</div><h3>Ground nodes</h3><p>Three receive-only nodes, including the border corridor.</p></li>
       <li class="rv"><div class="n">DAY 75</div><h3>Live pilots</h3><p>Alerts under two minutes, two pilot users, TRL 5.</p></li>
     </ol>
@@ -495,9 +493,9 @@ footer a:hover{color:var(--paper)}
   <div class="wrap">
     <div class="fgrid">
       <div><a class="brand" href="/"><img src="/favicon.svg" alt="" width="22" height="22" /><b>ICHNOS</b></a><p style="margin-top:14px;max-width:280px">The GPS integrity layer for Indian airspace.</p></div>
-      <div><h4>Product</h4><a href="/app.html">Live replay</a><a href="#platform">Platform</a><a href="#benchmark">Benchmark</a><a href="https://github.com/TheNandinee/ichnos">GitHub</a></div>
+      <div><h4>Product</h4><a href="/app.html">Live replay</a><a href="#benchmark">Benchmark</a><a href="#platform">Platform</a><a href="https://github.com/TheNandinee/ichnos">GitHub</a></div>
       <div><h4>Trust</h4><span>Receive-only. Never transmits.</span><span>Data: adsb.lol contributors, ODbL 1.0</span><span>Code: Apache-2.0</span></div>
-      <div><h4>Context</h4><span>SEVA FIRST 2026 · Open proposal</span><span>Defence, Intelligence, Space &amp; National Security</span><span></span></div>
+      <div><h4>Context</h4><span>SEVA FIRST 2026 · Open proposal</span><span>Defence, Intelligence, Space &amp; National Security</span><span>Built at IGDTUW, Delhi</span></div>
     </div>
     <div class="fbase"><span>© 2026 ICHNOS</span><span>Basemap © MapTiler © OpenStreetMap contributors</span></div>
   </div>
@@ -508,6 +506,8 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 const rand = (a, b) => a + Math.random() * (b - a);
+const n = (v) => Number(v).toLocaleString('en-IN');
+const pct1 = (x) => `${(x * 100).toFixed(1)}%`;
 
 /* sky */
 const cv = $('#sky'), cx = cv.getContext('2d');
@@ -529,14 +529,14 @@ class Track {
     this.tr.push({ ...q, s: this.sp }); if (this.tr.length > 120) this.tr.shift();
   }
   draw() {
-    const n = this.tr.length;
-    for (let i = 1; i < n; i++) {
+    const k = this.tr.length;
+    for (let i = 1; i < k; i++) {
       const a = this.tr[i - 1], b = this.tr[i];
       cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y);
-      cx.strokeStyle = a.s !== b.s ? 'rgba(229,72,77,.95)' : (b.s ? `rgba(229,72,77,${i / n * .6})` : `rgba(0,179,199,${i / n * .55})`);
+      cx.strokeStyle = a.s !== b.s ? 'rgba(229,72,77,.95)' : (b.s ? `rgba(229,72,77,${i / k * .6})` : `rgba(0,179,199,${i / k * .55})`);
       cx.lineWidth = a.s !== b.s ? 1.6 : 1; cx.stroke();
     }
-    const h = this.tr[n - 1]; if (!h) return;
+    const h = this.tr[k - 1]; if (!h) return;
     if (this.sp) { const a = this.p(this.at), b = this.p(this.t); cx.setLineDash([4, 5]); cx.strokeStyle = 'rgba(255,153,51,.6)'; cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); cx.setLineDash([]); }
     cx.fillStyle = this.sp ? '#E5484D' : '#F5F7FA'; cx.beginPath(); cx.arc(h.x, h.y, this.sp ? 2.6 : 1.7, 0, 7); cx.fill();
   }
@@ -558,10 +558,7 @@ function frame() {
 function loop() { if (!on) { looping = false; return; } looping = true; frame(); requestAnimationFrame(loop); }
 size(); addEventListener('resize', size);
 if (reduce) { for (let i = 0; i < 300; i++) tracks.forEach((t) => t.step()); frame(); }
-else {
-  new IntersectionObserver(([e]) => { on = e.isIntersecting; if (on && !looping) loop(); }).observe($('#hero'));
-  loop();
-}
+else { new IntersectionObserver(([e]) => { on = e.isIntersecting; if (on && !looping) loop(); }).observe($('#hero')); loop(); }
 
 /* nav + frame tilt */
 const nav = $('#nav'), fr = $('#frame');
@@ -591,24 +588,12 @@ if (cmp) {
   rg.addEventListener('input', (e) => set(e.target.value));
   if (!reduce) new IntersectionObserver(([e], o) => {
     if (!e.isIntersecting) return; o.disconnect(); const t0 = performance.now();
-    const sw = (n) => { const k = Math.min(1, (n - t0) / 2200); const v = 50 + 34 * Math.sin(k * Math.PI * 2) * (1 - k); rg.value = v; set(v); if (k < 1) requestAnimationFrame(sw); };
+    const sw = (now) => { const k = Math.min(1, (now - t0) / 2200); const v = 50 + 34 * Math.sin(k * Math.PI * 2) * (1 - k); rg.value = v; set(v); if (k < 1) requestAnimationFrame(sw); };
     requestAnimationFrame(sw);
   }, { threshold: .5 }).observe(cmp);
 }
 
-/* counters */
-const fmt = (v, d, p, s) => p + v.toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d }) + s;
-function count(el) {
-  const t = parseFloat(el.dataset.count), d = +(el.dataset.decimals || 0), p = el.dataset.prefix || '', s = el.dataset.suffix || '';
-  if (reduce || t === 0) { el.textContent = fmt(t, d, p, s); return; }
-  const t0 = performance.now();
-  const tick = (n) => { const k = Math.min(1, (n - t0) / 1600); el.textContent = fmt(t * (1 - Math.pow(1 - k, 3)), d, p, s); if (k < 1) requestAnimationFrame(tick); };
-  requestAnimationFrame(tick);
-}
-const co = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { co.unobserve(e.target); count(e.target); } }), { threshold: .4 });
-$$('[data-count]').forEach((el) => co.observe(el));
-
-/* live: "Delhi right now" from /api/live (Vercel function reading api.adsb.lol) */
+/* live: "Delhi right now" from /api/live */
 const liveEl = $('#live'), liveText = $('#live-text');
 async function liveTick() {
   if (document.hidden) return;
@@ -620,42 +605,68 @@ async function liveTick() {
     const ac = Number(d.aircraft) || 0, low = Number(d.low_nic) || 0, withNic = Number(d.with_nic) || 0;
     const alt = Array.isArray(d.alt_outliers) ? d.alt_outliers.length : 0;
     const time = new Date(d.generated_at).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-    liveText.innerHTML =
-      `Delhi right now · ${time} IST · <b>${ac}</b> aircraft within 150 nm · ` +
-      `<b class="${low ? 'warn' : ''}">${low}/${withNic}</b> degraded GPS integrity · ` +
-      `<b class="${alt ? 'warn' : ''}">${alt}</b> altitude mismatches`;
+    liveText.innerHTML = `Delhi right now · ${time} IST · <b>${ac}</b> aircraft within 150 nm · ` +
+      `<b class="${low ? 'warn' : ''}">${low}/${withNic}</b> degraded GPS integrity · <b class="${alt ? 'warn' : ''}">${alt}</b> altitude mismatches`;
     liveEl.classList.add('ok');
   } catch {
     liveEl.classList.remove('ok');
     liveText.textContent = 'Delhi right now: live feed unavailable at the moment.';
   }
 }
-liveTick();
-setInterval(liveTick, 30000);
+liveTick(); setInterval(liveTick, 30000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) liveTick(); });
 
-/* exported pipeline data */
+/* benchmark data (web/public/data/bench_v1.json, written by scripts/publish_v1.py) */
 const get = async (p) => { try { const r = await fetch(p); if (!r.ok) throw 0; return await r.json(); } catch { return null; } };
-const [meta, metrics] = await Promise.all([get('/data/meta.json'), get('/data/metrics.json')]);
-const n = (v) => Number(v).toLocaleString('en-IN');
-if (meta) {
-  $('#hs-reports').textContent = n(meta.n_reports);
-  $('#chip-text').textContent = `${n(meta.n_reports)} real ADS-B reports replayed`;
-  $('#b-reports').textContent = n(meta.n_reports);
-  $('#b-aircraft').textContent = n(meta.n_aircraft);
-  $('#b-events').textContent = n(meta.n_events);
+const v1 = await get('/data/bench_v1.json');
+const setCount = (sel, v, d = 0, s = '') => { const el = $(sel); if (el && v != null) Object.assign(el.dataset, { count: v, decimals: d, suffix: s }); };
+const LABEL = { spoof_jumps: 'Track jumps · lane 2', rules_spoof: 'Spoofing rules combined', spoof_altitude: 'Altitude mismatch · lane 3', integrity_jam: 'Integrity-only jamming · lane 1', model: 'Learned model' };
+const ABL = { model_full: 'Model, all features', model_no_kinematic: '… without kinematic', model_no_altitude: '… without altitude', model_no_integrity: '… without integrity', 'rules (lanes A+B)': 'Physics rules (lanes 2 + 3)', 'rules OR model': 'Rules OR model' };
+const f2 = (x) => x == null ? 'n/a' : Number(x).toFixed(2);
+const pf = (p) => p == null ? 'n/a' : (p < 0.001 ? '&lt;0.001' : Number(p).toFixed(3));
+const pc = (x) => x == null ? '–' : `${(x * 100).toFixed(1)}%`;
+const sc = (x) => Math.max(0, Math.min(100, (x - 0.5) * 200));
+
+if (v1) {
+  const D = v1.delhi, N = D.nov4, A = v1.atq, best = v1.leaderboard?.[0];
+  $('#chip-text').textContent = `${n(v1.n_days)} days · ${n(v1.n_reports)} real ADS-B reports replayed`;
+  $('#hs-top').textContent = `Top ${D.top_run}`;
+  $('#hs-days').textContent = v1.n_days;
+  $('#hs-reports').textContent = `${(v1.n_reports / 1e6).toFixed(1)} M`;
+  if (best) { $('#hs-auc').textContent = f2(best.auc); $('#hs-auc-l').textContent = `day-level AUC on IN-RFI-Replay v1 (95% CI ${f2(best.auc_ci[0])}–${f2(best.auc_ci[1])})`; }
+  setCount('#f-top', D.top_run); $('#f-days').textContent = v1.n_days;
+  setCount('#f-jam', +(N.del_jam * 100).toFixed(1), 1, '%'); $('#f-jam-rest').textContent = pct1(N.rest_jam);
+  setCount('#f-alt', +(N.del_alt * 100).toFixed(1), 1, '%'); $('#f-alt-rest').textContent = pct1(N.rest_alt);
+  setCount('#f-jumps', N.del_jumps);
+  if (A?.feed_days) { $('#f-atq').textContent = `${Math.round(A.jam_min * 100)}–${Math.round(A.jam_max * 100)}%`; $('#f-atq-days').textContent = A.feed_days; }
+  if (v1.leaderboard?.length) {
+    $('#b-pos').textContent = v1.leaderboard[0].n_pos_days; $('#b-neg').textContent = v1.leaderboard[0].n_neg_days;
+    $('#lb-body').innerHTML = v1.leaderboard.map((r, i) => {
+      const lo = sc(r.auc_ci[0]), hi = sc(r.auc_ci[1]);
+      return `<tr class="${i === 0 ? 'best' : ''}"><td class="m">${LABEL[r.method] || r.method}</td>` +
+        `<td><b>${f2(r.auc)}</b> <span class="src">${f2(r.auc_ci[0])}–${f2(r.auc_ci[1])}</span></td>` +
+        `<td class="viz"><span class="aucbar"><i style="left:${lo}%;width:${hi - lo}%"></i><s style="left:${sc(r.auc)}%"></s></span></td>` +
+        `<td><b>${r.window_hits}/${r.n_windows}</b></td><td class="src">${pf(r.p_one_sided)}</td></tr>`;
+    }).join('');
+  }
+  if (v1.ablation?.length) {
+    $('#abl-body').innerHTML = v1.ablation.filter((r) => r.method !== 'rules OR model').map((r, i) =>
+      `<tr class="${i === 0 ? 'best' : ''}"><td class="m">${ABL[r.method] || r.method}</td><td><b>${pc(r['recall_at_fpr_0.1pct'])}</b></td>` +
+      `<td>${pc(r.recall_drift)}</td><td>${pc(r.recall_jump)}</td><td>${pc(r.recall_altitude)}</td></tr>`).join('');
+  }
 }
-const m = metrics?.methods?.find((x) => x.method === 'ichnos');
-if (m && m.recall != null) {
-  const pc = (x) => x == null ? 'n/a' : `${(x * 100).toFixed(1)}%`;
-  $('#b-recall').textContent = `${m.detected}/${m.n_windows} windows`;
-  $('#b-ci').textContent = `95% CI ${pc(m.ci_lo)}–${pc(m.ci_hi)} · ${m.fa_events} events in ${m.control_hours} h of control data`;
-  new IntersectionObserver(([e], o) => {
-    if (!e.isIntersecting) return; o.disconnect();
-    const lo = (m.ci_lo || 0) * 100, hi = (m.ci_hi || 0) * 100;
-    $('#ci-band').style.left = `${lo}%`; $('#ci-band').style.width = `${hi - lo}%`; $('#ci-pt').style.left = `${m.recall * 100}%`;
-  }, { threshold: .5 }).observe($('#ci-band'));
+
+/* counters (set up after data so they count to the published values) */
+const fmt = (v, d, s) => v.toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d }) + s;
+function count(el) {
+  const t = parseFloat(el.dataset.count), d = +(el.dataset.decimals || 0), s = el.dataset.suffix || '';
+  if (reduce || t === 0) { el.textContent = fmt(t, d, s); return; }
+  const t0 = performance.now();
+  const tick = (now) => { const k = Math.min(1, (now - t0) / 1600); el.textContent = fmt(t * (1 - Math.pow(1 - k, 3)), d, s); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
 }
+const co = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { co.unobserve(e.target); count(e.target); } }), { threshold: .4 });
+$$('[data-count]').forEach((el) => co.observe(el));
 </script>
 </body>
 </html>
