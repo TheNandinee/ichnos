@@ -1,0 +1,152 @@
+{
+  "coverage": [
+    {
+      "region": "ATQ",
+      "median_aircraft_per_day": 194.5,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "BLR",
+      "median_aircraft_per_day": 404.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "BOM",
+      "median_aircraft_per_day": 610.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "CCU",
+      "median_aircraft_per_day": 440.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "DEL",
+      "median_aircraft_per_day": 535.0,
+      "positive_days": 17,
+      "negative_days": 45,
+      "scorable": true,
+      "reason": null
+    },
+    {
+      "region": "HYD",
+      "median_aircraft_per_day": 343.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    },
+    {
+      "region": "MAA",
+      "median_aircraft_per_day": 148.0,
+      "positive_days": 0,
+      "negative_days": 12,
+      "scorable": false,
+      "reason": "no dated/period windows"
+    }
+  ],
+  "results": [
+    {
+      "region": "DEL",
+      "method": "integrity_jam",
+      "auc": 0.7869281045751634,
+      "auc_ci": [
+        0.6391830065359476,
+        0.9150326797385621
+      ],
+      "p_one_sided": 0.0002744071505189734,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 4,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.29998832134152864,
+        0.9032306674407831
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "model",
+      "auc": 0.730718954248366,
+      "auc_ci": [
+        0.5777777777777777,
+        0.8640522875816994
+      ],
+      "p_one_sided": 0.0027417335212880315,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 4,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.29998832134152864,
+        0.9032306674407831
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "rules_spoof",
+      "auc": 0.8470588235294118,
+      "auc_ci": [
+        0.7124019607843137,
+        0.9555555555555556
+      ],
+      "p_one_sided": 1.4178219448045162e-05,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "spoof_altitude",
+      "auc": 0.803921568627451,
+      "auc_ci": [
+        0.6601143790849673,
+        0.9241830065359478
+      ],
+      "p_one_sided": 0.0001237960426729842,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    },
+    {
+      "region": "DEL",
+      "method": "spoof_jumps",
+      "auc": 0.8503267973856209,
+      "auc_ci": [
+        0.7202287581699346,
+        0.9588235294117647
+      ],
+      "p_one_sided": 3.692517690466622e-06,
+      "n_pos_days": 17,
+      "n_neg_days": 45,
+      "window_hits": 5,
+      "n_windows": 6,
+      "window_recall_ci": [
+        0.43649056343635395,
+        0.9699474141282697
+      ]
+    }
+  ]
+}

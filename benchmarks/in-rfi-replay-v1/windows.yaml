@@ -1,0 +1,102 @@
+# IN-RFI-Replay v1: cited GNSS interference windows over India.
+# tier: dated = specific days reported; period = official month-level count;
+#       chronic = long-running, undated reports (descriptive only, never positives);
+#       exploratory = plausible but unconfirmed for civil aviation (excluded from scoring).
+version: 1.0
+windows:
+  - id: DEL-2025-W45-spoof
+    region: DEL
+    tier: dated
+    class: spoof
+    start: "2025-10-30"
+    end: "2025-11-06"
+    confidence: media
+    citations:
+      - {publisher: Business Today, date: "2025-11-06", url: "https://www.businesstoday.in/latest/economy/story/dgca-looking-into-gps-spoofing-over-delhi-amid-aviation-safety-concerns-500993-2025-11-06", says: "DGCA collecting data on severe spoofing over Delhi in the past week, starting about 60 nm from IGI"}
+      - {publisher: Scroll (citing The Hindu), date: "2025-11-07", url: "https://scroll.in/latest/1088368/severe-gps-spoofing-disrupted-flight-operations-over-delhi-for-seven-days-reports", says: "spoofing disrupted Delhi operations for seven days"}
+  - id: DEL-2025-11-04-diversions
+    region: DEL
+    tier: dated
+    class: spoof
+    start: "2025-11-04"
+    end: "2025-11-04"
+    confidence: media
+    citations:
+      - {publisher: Business Today, date: "2025-11-06", url: "https://www.businesstoday.in/latest/economy/story/dgca-looking-into-gps-spoofing-over-delhi-amid-aviation-safety-concerns-500993-2025-11-06", says: "seven flights diverted to Jaipur on Tuesday night"}
+      - {publisher: Daily Jagran, date: "2025-11-06", url: "https://www.thedailyjagran.com/delhi/new-delhi-flights-hit-by-suspected-gps-spoofing-several-diverted-to-jaipur-40031081", says: "at least eight Delhi-bound aircraft redirected to Jaipur on Tuesday"}
+    note: "Tuesday = 4 Nov 2025 (IST night spans two UTC days)."
+  - id: DEL-2025-11-05-gpswise
+    region: DEL
+    tier: dated
+    class: spoof
+    start: "2025-11-05"
+    end: "2025-11-05"
+    confidence: secondary
+    citations:
+      - {publisher: RNTF, date: "2025-11-07", url: "https://rntfnd.org/2025/11/07/gps-spoofing-strikes-delhi-airport-disruptive-signals-force-flight-diversions-pilots-warned-moneycontrol/", says: "image of spoofing near Delhi on 5 Nov 2025 from the GPSwise map"}
+  - id: DEL-2025-11-07-AI302
+    region: DEL
+    tier: dated
+    class: spoof
+    start: "2025-11-07"
+    end: "2025-11-07"
+    confidence: media
+    citations:
+      - {publisher: The Week, date: "2025-12-06", url: "https://www.theweek.in/news/sci-tech/2025/12/06/gps-spoofing-the-invisible-danger-in-india-s-aerospace.html", says: "Air India AI302 spoofed on approach to IGI on the evening of 7 Nov"}
+    note: "Confounder: an ATC message-switching (AMSS) outage disrupted Delhi on 6-7 Nov (News On AIR, 7 Nov 2025). Delays that day are not evidence of spoofing."
+  - id: DEL-2026-01
+    region: DEL
+    tier: period
+    class: mixed
+    start: "2026-01-01"
+    end: "2026-01-31"
+    confidence: official
+    citations:
+      - {publisher: TEN News (Lok Sabha reply), date: "2026-03-12", url: "https://tennews.in/airlines-report-623-incidents-of-gps-spoofing-in-delhi-airspace-during-january-february/", says: "623 interference reports around Delhi in Jan-Feb 2026"}
+  - id: DEL-2026-02
+    region: DEL
+    tier: period
+    class: mixed
+    start: "2026-02-01"
+    end: "2026-02-28"
+    confidence: official
+    citations:
+      - {publisher: TEN News (Lok Sabha reply), date: "2026-03-12", url: "https://tennews.in/airlines-report-623-incidents-of-gps-spoofing-in-delhi-airspace-during-january-february/", says: "623 interference reports around Delhi in Jan-Feb 2026"}
+  - id: ATQ-2023-2025-border
+    region: ATQ
+    tier: chronic
+    class: mixed
+    start: "2023-11-01"
+    end: "2025-02-28"
+    confidence: official
+    citations:
+      - {publisher: ETV Bharat (Lok Sabha reply), date: "2025-03-20", url: "https://www.etvbharat.com/en/!bharat/several-airlines-operating-aircraft-in-around-amritsar-report-gps-interference-govt-enn25032004486", says: "about 465 incidents in the border region, mostly Amritsar/Jammu, Nov 2023-Feb 2025"}
+  - id: ATQ-NOTAM
+    region: ATQ
+    tier: chronic
+    class: mixed
+    start: "2023-12-01"
+    end: "2025-12-01"
+    confidence: official
+    citations:
+      - {publisher: ICAO APAC Radio Navigation Symposium 2025, date: "2025", url: "https://www.icao.int/sites/default/files/APAC/Meetings/2025/2025%20ICAO%20APAC%20Radio%20Navigation%20Symposium%20%20Radio%20N/6-Addressing%20GNSS%20RFI-Challenges/SP04-GNSS-RFI-in-India-Challenges-Regulations-and-Analysis-thereof.pdf", says: "advisory caution NOTAM for GNSS interference near Amritsar, renewed periodically; most reports in approach"}
+  - {id: CCU-regular, region: CCU, tier: chronic, class: mixed, start: "2023-11-01", end: "2025-12-01", confidence: official,
+     citations: [{publisher: News On AIR (Rajya Sabha reply), date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop", says: "regular GNSS interference reports from Kolkata since Nov 2023"}]}
+  - {id: BOM-regular, region: BOM, tier: chronic, class: mixed, start: "2023-11-01", end: "2025-12-01", confidence: official,
+     citations: [{publisher: News On AIR (Rajya Sabha reply), date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop", says: "regular reports from Mumbai since Nov 2023"}]}
+  - {id: HYD-regular, region: HYD, tier: chronic, class: mixed, start: "2023-11-01", end: "2025-12-01", confidence: official,
+     citations: [{publisher: News On AIR (Rajya Sabha reply), date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop", says: "regular reports from Hyderabad since Nov 2023"}]}
+  - {id: BLR-regular, region: BLR, tier: chronic, class: mixed, start: "2023-11-01", end: "2025-12-01", confidence: official,
+     citations: [{publisher: News On AIR (Rajya Sabha reply), date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop", says: "regular reports from Bengaluru since Nov 2023"}]}
+  - {id: MAA-regular, region: MAA, tier: chronic, class: mixed, start: "2023-11-01", end: "2025-12-01", confidence: official,
+     citations: [{publisher: News On AIR (Rajya Sabha reply), date: "2025-12-01", url: "https://www.newsonair.gov.in/civil-aviation-minister-informs-rajya-sabha-of-gps-spoofing-near-igi-airport-dgca-issues-sop", says: "regular reports from Chennai since Nov 2023"}]}
+  - id: NW-2025-05-sindoor
+    region: ATQ
+    tier: exploratory
+    class: jam
+    start: "2025-05-07"
+    end: "2025-05-10"
+    confidence: inferred
+    citations:
+      - {publisher: War on the Rocks, date: "2025", url: "https://warontherocks.com/deep-learning-from-operation-sindoor-five-takeaways-from-a-four-day-war/", says: "intense electronic warfare including GNSS jamming and spoofing during the four-day conflict"}
+    note: "Civil airspace closures cut traffic; no civil-aviation report found for these dates."

@@ -1,0 +1,53 @@
+[
+  {
+    "method": "model_full",
+    "auc": 0.8767501558299682,
+    "recall_at_fpr_0.1pct": 0.530405939030169,
+    "fpr": 0.0010000455995635021,
+    "recall_drift": 0.7948717948717948,
+    "recall_jump": 0.07426778242677824,
+    "recall_altitude": 0.6466766616691654
+  },
+  {
+    "method": "model_no_kinematic",
+    "auc": 0.7444084740136189,
+    "recall_at_fpr_0.1pct": 0.2190807139472437,
+    "fpr": 0.0009843216121489817,
+    "recall_drift": 0.0012406947890818859,
+    "recall_jump": 0.0,
+    "recall_altitude": 0.6916541729135433
+  },
+  {
+    "method": "model_no_altitude",
+    "auc": 0.7766633683109067,
+    "recall_at_fpr_0.1pct": 0.3432317169483494,
+    "fpr": 0.0010000455995635021,
+    "recall_drift": 0.7948717948717948,
+    "recall_jump": 0.08263598326359832,
+    "recall_altitude": 0.046476761619190406
+  },
+  {
+    "method": "model_no_integrity",
+    "auc": 0.8756905654695349,
+    "recall_at_fpr_0.1pct": 0.5209287632285579,
+    "fpr": 0.0010000455995635021,
+    "recall_drift": 0.782051282051282,
+    "recall_jump": 0.07165271966527197,
+    "recall_altitude": 0.6346826586706646
+  },
+  {
+    "method": "rules (lanes A+B)",
+    "auc": null,
+    "recall_at_fpr_0.1pct": 0.04849154951824356,
+    "fpr": 0.0005000227997817511,
+    "recall_drift": 0.030603804797353185,
+    "recall_jump": 0.034518828451882845,
+    "recall_altitude": 0.08345827086456771
+  },
+  {
+    "method": "rules OR model",
+    "auc": null,
+    "recall_at_fpr_0.1pct": 0.5338809034907598,
+    "fpr": 0.0013176701453368157
+  }
+]
